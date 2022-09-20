@@ -9,7 +9,6 @@ We will be reviewing the following topics:
 - Generics on Java.
 - Generic classes, interfaces and methods.
 - Upper Bounds.
-- `Wildcards.
 
 **You can use this ReadMe as a cheatsheet and clone this project to run it in your IDE for further knowledge about how Generics work in Java.**
 

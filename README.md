@@ -81,12 +81,14 @@ Example of type safety:
   
         // instance of String type
         Test<String> sObj
-            = new Test<String>("GeeksForGeeks");
+            = new Test<String>("Java Generics");
         System.out.println(sObj.getObject());
         iObj = sObj; // This results an error
 ```
 
 ## Generic classes 🐙
+
+For example, classes like HashSet, ArrayList, HashMap, etc., use generics very well.
 
 - A generic class **is implemented exactly like a non-generic class**.
 - The only difference is that **it contains a type parameter section**. 
@@ -158,7 +160,8 @@ Replacer<String> bagReplacer = new StringBag();  // Using non-generic `StringBag
 
 ## Generic methods 👾
 
-We can create **generic methods** without creating a whole generic class or interfaz
+Generic Java method takes a parameter and returns some value after performing a task.   
+It is exactly like a normal function, however, **a generic method has type parameters that are cited by actual type**. This allows the generic method to be used in a more general way. **The compiler takes care of the type of safety** which enables programmers to code easily since they do not have to perform long, individual type castings.
 
 ```java
 
@@ -218,43 +221,6 @@ public class Box <T extends Number & Comparable<T>> {
 }
 
 ```
-
-## Wildcards 🪐
-
-We can make our code even more general when **we don’t need the more strict type checking** of using type parameters by using **wildcards**. A wildcard, denoted by the `?` symbol, **represents an unknown type when used with generic methods**.
-
-```java
-public class Util {
-  public static void printBag(Bag<?> bag ) {
-    System.out.println(bag.toString());
-  }
-}
-Bag<String> myBag1 = new Bag("Hello");
-Bag<Integer> myBag2 = new Bag(23);
-Util.printBag(myBag1);  // Hello
-Util.printBag(myBag2);  // 23
-
-```
-
-we’ve defined the parameter as Bag<T> as opposed to Bag<?> and in this implementation makes no difference but you may notice that the wildcard version is simpler. **It’s simpler in not needing the extra <T> before the return type** and easier to make sense of when reading the signature.
-**We should use type parameters, when we have a relationship between the type of arguments and the return type.**
-
-
-### Wildcard Lower Bounds 🌠
-
-We can also provide a **lower bound** when working with wildcards. A lower bound wildcard **restricts the wildcard to a class or interface and any of its parent types**. 
-
-Some important things to note about lower bounds are:
-- They **cannot be used with generic type parameters**, only wildcards.
-- A wildcard **cannot have both a lower bound and upper bound**, in this case, it’s best to use a type parameter.
-
-## When to use what type of wildcard 🛰️
-There are some general guidelines provided by Java:
-- An **upper bound wildcard** should be used when **the variable is being used to serve data** to our code.
-- A **lower bound** wildcard should be used when **the variable is receiving data and holding it** to be used later.
-- An **unbounded wildcard** when a variable that serves data is used and **only uses Object methods**.
-- A wildcard should **not be used** when **a variable needs to serve data and store data** for use later on (use a **type parameter** instead).
-
 
 
 

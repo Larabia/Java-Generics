@@ -43,13 +43,16 @@ Programs that use Generics has got many benefits over non-generic code.
 1. **Code Reuse:** We can write a method/class/interface once and use it for any type we want.
 
 2. **Type Safety:** Generics make errors to appear compile time than at run time (It’s always better to know problems in your code at compile time rather than making your code fail at run time). Suppose you want to create an ArrayList that store name of students, and if by mistake the programmer adds an integer object instead of a string, the compiler allows it. But, when we retrieve this data from ArrayList, it causes problems at runtime.
-3. **Individual Type Casting is not needed:**Typecasting at every retrieval operation is a big headache. If we already know that our list only holds string data, we need not typecast it every time.
+3. **Individual Type Casting is not needed:** Typecasting at every retrieval operation is a big headache. If we already know that our list only holds string data, we need not typecast it every time.
 4. **Generics Promotes Code Reusability:** With the help of generics in Java, we can write code that will work with different types of data. 
 5. **Implementing Generic Algorithms:** By using generics, we can implement algorithms that work on different types of objects, and at the same, they are type-safe too.
 
 Example of type safety:
 
 ```java
+/*  Java program to demonstrate that NOT using
+    generics can cause run time exceptions */
+
         // Creating an ArrayList without any type specified
         ArrayList normalArr = new ArrayList();
   
@@ -63,7 +66,11 @@ Example of type safety:
 ```
 
 ```java
-// Creating a an ArrayList with String specified
+
+/* Using Java Generics converts run time exceptions into
+   compile time exception. */
+   
+        // Creating a an ArrayList with String specified
         ArrayList <String> genericArr = new ArrayList<String> ();
   
         genericArr.add("Pola");
@@ -75,7 +82,9 @@ Example of type safety:
         String string2 = genericArr.get(1);
 ```
 ```java
-// instance of Integer type
+/* Generic Types Differ Based on Their Type Arguments */
+
+        // instance of Integer type
         Test<Integer> iObj = new Test<Integer>(15);
         System.out.println(iObj.getObject());
   
